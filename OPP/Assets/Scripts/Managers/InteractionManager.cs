@@ -13,7 +13,9 @@ public class InteractionManager : MonoBehaviour
 
     void Awake()
     {
-        interactions.Add(typeof(Unit), GoTo);
+        interactions.Add(typeof(TypeA), GoTo);
+        interactions.Add(typeof(TypeB), GoTo);
+        interactions.Add(typeof(TypeC), GoTo);
     }
 
     void Update()
@@ -38,7 +40,8 @@ public class InteractionManager : MonoBehaviour
         var ray = cam.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            actionsManager.SelectedUnit.Move(hit.point);
+            //actionsManager.SelectedUnit.Move(hit.point);
+            actionsManager.SelectedUnit.Action(hit);
         }
     }
 }

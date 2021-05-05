@@ -954,7 +954,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allUnits:
-  - {fileID: 4173640281373110084, guid: e39b2cf87f981114fabcc445ab1b4113, type: 3}
+  - {fileID: 1897509754840489598, guid: c77c59eab0b1eb04c8ffdb3defd6443c, type: 3}
+  - {fileID: 1811113428052959058, guid: 24e0f59747bd16b4da0527650dcd6b81, type: 3}
+  - {fileID: 9115537764399277208, guid: 8e2faf239f5c388468906f4875d9dc14, type: 3}
   waypoints:
   - {fileID: 570564669}
   - {fileID: 1410818931}
@@ -1551,7 +1553,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1941478699}
-  - component: {fileID: 1941478700}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -1573,18 +1574,6 @@ Transform:
   m_Father: {fileID: 1067658703}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1941478700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1941478698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0d56068c2416bf478ac4c9471578c64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2064895196
 GameObject:
   m_ObjectHideFlags: 0

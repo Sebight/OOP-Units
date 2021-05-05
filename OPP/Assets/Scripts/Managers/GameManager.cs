@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     void SpawnUnit(Vector3 position)
     {
-        var unit = allUnits[Random.Range(0, allUnits.Length - 1)];
+        var unit = allUnits[Random.Range(0, allUnits.Length)];
         var instance = Instantiate(unit);
         instance.transform.position = position;
 

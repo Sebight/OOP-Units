@@ -22,6 +22,14 @@ public class ActionsManager : MonoBehaviour
         var ray = cam.ScreenPointToRay(Input.mousePosition);
         if(Physics.Raycast(ray, out RaycastHit hit))
         {
+            Unit unitComponent = hit.transform.gameObject.GetComponent<Unit>();
+            if (unitComponent != null)
+            {
+                if (SelectedUnit != null) SelectedUnit.OnDeselect();
+                //SelectedUnit.OnDeselect();
+                SelectedUnit = unitComponent;
+                unitComponent.OnSelect();
+            }
             // TODO: implement
             // get Unit
             // set SelectedUnit
