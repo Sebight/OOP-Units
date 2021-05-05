@@ -14,7 +14,7 @@ public class Unit : MonoBehaviour
 
     public virtual void Action(RaycastHit hit)
     {
-        agent.SetDestination(hit.point);
+        Move(hit.point);
     }
 
     public virtual void OnSelect()

@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         var spots = waypoints.OrderBy(x => Guid.NewGuid());
-        foreach(var s in spots)
+        foreach (var s in spots)
         {
             SpawnUnit(s.position);
         }
