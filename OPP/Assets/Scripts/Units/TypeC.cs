@@ -5,6 +5,12 @@ using UnityEngine;
 public class TypeC : Unit
 {
     private bool coroutineStarted = false;
+    public LineRenderer lineRenderer;
+
+    private void Start()
+    {
+        lineRenderer = GetComponent<LineRenderer>();
+    }
 
     public override void Action(RaycastHit hit)
     {
@@ -14,7 +20,6 @@ public class TypeC : Unit
             if (!coroutineStarted)
             {
                 base.Action(hit);
-                //Shooting logic
                 StartCoroutine(Shoot(unitComponent));
             }
         }
@@ -27,11 +32,13 @@ public class TypeC : Unit
             coroutineStarted = true;
             while (!(Vector3.Distance(agent.destination, agent.transform.position) <= agent.stoppingDistance)) yield return null;
             yield return new WaitForSeconds(0.5f);
-            //Shoot the ray
-            //Ray ray = new Ray(agent.gameObject.transform.position, otherUnit.gameObject.transform.position);
-            //Debug.DrawRay(agent.gameObject.transform.position, agent.gameObject.transform.forward, Color.red, 1.0f);
+            lineRenderer.SetPosition(0, gameObject.transform.position + new Vector3(0, 1, 0));
+            lineRenderer.SetPosition(1, otherUnit.gameObject.transform.position + new Vector3(0, 1, 0));
+            lineRenderer.enabled = true;
             Debug.Log("Shoot!");
             otherUnit.gameObject.SetActive(false);
+            yield return new WaitForSeconds(1);
+            lineRenderer.enabled = false;
             coroutineStarted = false;
         }
     }

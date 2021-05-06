@@ -26,13 +26,9 @@ public class ActionsManager : MonoBehaviour
             if (unitComponent != null)
             {
                 if (SelectedUnit != null) SelectedUnit.OnDeselect();
-                //SelectedUnit.OnDeselect();
                 SelectedUnit = unitComponent;
                 unitComponent.OnSelect();
             }
-            // TODO: implement
-            // get Unit
-            // set SelectedUnit
         }
     }
 }

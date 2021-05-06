@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 7703290143473659997}
+  outline: {fileID: 9217204731051078870}
   originalPos: {x: 0, y: 0, z: 0}
   bombPrefab: {fileID: 9196267412632306713, guid: 77fec1d1b82db7b44ae12d09922df7a4,
     type: 3}

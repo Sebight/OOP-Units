@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class Unit : MonoBehaviour
 {
     /*[SerializeField]*/ public NavMeshAgent agent;
+    public Outline outline;
 
     public virtual void Move(Vector3 position)
     {
@@ -29,11 +30,11 @@ public class Unit : MonoBehaviour
 
     public void Outline()
     {
-        gameObject.GetComponent<Outline>().enabled = true;
+        outline.enabled = true;
     }
 
     public void HideOutline()
     {
-        gameObject.GetComponent<Outline>().enabled = false;
+        outline.enabled = false;
     }
 }

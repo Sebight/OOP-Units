@@ -102,6 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 8542837146730964648}
+  outline: {fileID: 7170788697253847587}
+  gameManager: {fileID: 0}
 --- !u!1 &7846701900371358648
 GameObject:
   m_ObjectHideFlags: 0

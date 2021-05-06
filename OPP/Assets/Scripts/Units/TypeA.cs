@@ -29,9 +29,14 @@ public class TypeA : Unit
         base.Move(originalPos);
         GameObject bomb = Instantiate(bombPrefab);
         bomb.transform.position = gameObject.transform.position;
-        yield return new WaitForSeconds(5);
-        Destroy(bomb);
+        StartCoroutine(DestoryBomb(bomb));
         while (!(Vector3.Distance(agent.destination, agent.transform.position) <= agent.stoppingDistance)) yield return null;
         coroutineStarted = false;
+    }
+
+    public IEnumerator DestoryBomb(GameObject bomb)
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(bomb);
     }
 }
