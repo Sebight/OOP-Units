@@ -27,7 +27,7 @@ public class ActionsManager : MonoBehaviour
             {
                 if (SelectedUnit != null) SelectedUnit.OnDeselect();
                 SelectedUnit = unitComponent;
-                unitComponent.OnSelect();
+                SelectedUnit.OnSelect();
             }
         }
     }

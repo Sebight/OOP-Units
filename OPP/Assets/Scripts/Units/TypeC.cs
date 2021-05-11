@@ -35,7 +35,6 @@ public class TypeC : Unit
             lineRenderer.SetPosition(0, gameObject.transform.position + new Vector3(0, 1, 0));
             lineRenderer.SetPosition(1, otherUnit.gameObject.transform.position + new Vector3(0, 1, 0));
             lineRenderer.enabled = true;
-            Debug.Log("Shoot!");
             otherUnit.gameObject.SetActive(false);
             yield return new WaitForSeconds(1);
             lineRenderer.enabled = false;
