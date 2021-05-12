@@ -14,6 +14,8 @@ public class Unit : MonoBehaviour
     public delegate void ArrivedDelegate();
     public ArrivedDelegate arrivedDelegate;
 
+    public GameManager gameManager;
+
     public virtual void Move(Vector3 position)
     {
         agent.SetDestination(position);
@@ -48,11 +50,10 @@ public class Unit : MonoBehaviour
     public void Update()
     {
         bool distanceSmaller = (Vector3.Distance(agent.destination, agent.transform.position) <= agent.stoppingDistance);
-        if (distanceSmaller && !sentDelegate)
+        if (distanceSmaller /*&& !sentDelegate*/)
         {
             if (arrivedDelegate != null)
             {
-                Debug.Log("SOMETHING I SSUBCRISD");
                 arrivedDelegate?.Invoke();
                 sentDelegate = true;
             }

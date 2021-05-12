@@ -28,6 +28,27 @@ public class GameManager : MonoBehaviour
         var instance = Instantiate(unit);
         instance.transform.position = position;
 
+        instance.gameManager = this;
+
         AllUnits.Add(instance);
+    }
+
+    public Unit GetNearestUnit(GameObject from)
+    {
+        List<Unit> unitsList = AllUnits;
+        //Unit[] sortedUnits = new Unit[unitsList.Count];
+        int returnIndex = 1;
+        //SortedDictionary<Unit, float> distances = new SortedDictionary<Unit, float>();
+        Unit[] sortedUnits = unitsList.ToArray();
+        sortedUnits = sortedUnits.OrderBy((x) => (x.gameObject.transform.position - from.transform.position).sqrMagnitude).ToArray();
+        for (int i = 1; i < sortedUnits.Length; i++)
+        {
+            if (sortedUnits[i].gameObject.activeInHierarchy)
+            {
+                returnIndex = i;
+                break;
+            }
+        }
+        return sortedUnits[returnIndex];
     }
 }

@@ -52,7 +52,6 @@ public class TypeC : Unit
 
     IEnumerator Shoot(Unit otherUnit)
     {
-        Debug.Log("YEEHAW");
         yield return new WaitForSeconds(1);
         lineRenderer.SetPosition(0, gameObject.transform.position + new Vector3(0, 1, 0));
         lineRenderer.SetPosition(1, otherUnit.gameObject.transform.position + new Vector3(0, 1, 0));
@@ -60,7 +59,7 @@ public class TypeC : Unit
         otherUnit.gameObject.SetActive(false);
         yield return new WaitForSeconds(1);
         lineRenderer.enabled = false;
-        sentDelegate = false;
+        //sentDelegate = false;
         arrivedDelegate = null;
     }
 

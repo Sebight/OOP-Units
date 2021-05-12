@@ -18,19 +18,34 @@ public class TypeA : Unit
         if (!coroutineStarted)
         {
             base.Action(hit);
-            StartCoroutine(DropBomb());
+            coroutineStarted = true;
+            //StartCoroutine(DropBomb());
+            arrivedDelegate = () => DropBomb();
         }
     }
 
-    public IEnumerator DropBomb()
+    void DropBomb()
     {
-        coroutineStarted = true;
-        while (!(Vector3.Distance(agent.destination, agent.transform.position) <= agent.stoppingDistance)) yield return null;
         base.Move(originalPos);
         GameObject bomb = Instantiate(bombPrefab);
         bomb.transform.position = gameObject.transform.position;
         bomb.GetComponent<BombHandler>().enabled = true;
-        while (!(Vector3.Distance(agent.destination, agent.transform.position) <= agent.stoppingDistance)) yield return null;
-        coroutineStarted = false;
+        sentDelegate = false;
+        arrivedDelegate = () => AllowNextMove();
     }
+
+    void AllowNextMove()
+    {
+        Debug.Log("ALLOW");
+        coroutineStarted = false;
+        arrivedDelegate = null;
+    }
+
+    /*public IEnumerator DropBombOld()
+    {
+        //coroutineStarted = true;
+        
+        //arrivedDelegate = () => ;
+        //coroutineStarted = false;
+    }*/
 }
