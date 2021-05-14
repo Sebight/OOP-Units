@@ -19,9 +19,15 @@ public class TypeA : Unit
         {
             base.Action(hit);
             coroutineStarted = true;
-            //StartCoroutine(DropBomb());
-            arrivedDelegate = () => DropBomb();
+
+            //Delegates way
+            //arrivedDelegate = () => DropBomb();
+            RegisterOnArrive(() => DropBomb());
         }
+    }
+    public void RegisterOnArrive(ArrivedDelegate callback)
+    {
+        arrivedDelegate = callback;
     }
 
     void DropBomb()
@@ -31,7 +37,8 @@ public class TypeA : Unit
         bomb.transform.position = gameObject.transform.position;
         bomb.GetComponent<BombHandler>().enabled = true;
         sentDelegate = false;
-        arrivedDelegate = () => AllowNextMove();
+        //arrivedDelegate = () => AllowNextMove();
+        RegisterOnArrive(() => AllowNextMove());
     }
 
     void AllowNextMove()

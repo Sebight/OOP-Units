@@ -15,7 +15,8 @@ public class TypeC : Unit
 
     public void RegisterOnArrive(ArrivedDelegate callback)
     {
-        arrivedDelegate = callback;
+        //arrivedDelegate = callback;
+
     }
 
     public override void Action(RaycastHit hit)

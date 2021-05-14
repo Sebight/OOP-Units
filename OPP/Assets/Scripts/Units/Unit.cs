@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class Unit : MonoBehaviour
 {
@@ -9,10 +10,12 @@ public class Unit : MonoBehaviour
     public Outline outline;
 
     public bool sentDelegate = false;
-    public event System.Action<Unit> arrivedAction;
 
     public delegate void ArrivedDelegate();
     public ArrivedDelegate arrivedDelegate;
+
+    public UnityEvent arrivedEvent;
+    public System.Action arrivedAction;
 
     public GameManager gameManager;
 
