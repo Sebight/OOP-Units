@@ -29,7 +29,8 @@ public class TypeC : Unit
                 base.Action(hit);
                 //StartCoroutine(Shoot(unitComponent));
 
-                RegisterOnArrive(() => StartCoroutine(Shoot(unitComponent)));
+                //RegisterOnArrive(() => StartCoroutine(Shoot(unitComponent)));
+                arrivedAction = () => StartCoroutine(Shoot(unitComponent));
                 
 
                 //TODO: create dynamic on arrive system
@@ -61,7 +62,7 @@ public class TypeC : Unit
         yield return new WaitForSeconds(1);
         lineRenderer.enabled = false;
         //sentDelegate = false;
-        arrivedDelegate = null;
+        arrivedAction = null;
     }
 
     public override void OnSelect()

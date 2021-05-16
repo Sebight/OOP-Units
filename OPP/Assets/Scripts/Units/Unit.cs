@@ -60,6 +60,10 @@ public class Unit : MonoBehaviour
                 arrivedDelegate?.Invoke();
                 sentDelegate = true;
             }
+            if (arrivedAction != null)
+            {
+                arrivedAction();
+            }
         }
     }
 }
