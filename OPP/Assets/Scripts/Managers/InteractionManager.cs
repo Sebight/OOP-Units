@@ -26,21 +26,19 @@ public class InteractionManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            if(interactions.TryGetValue(unit.GetType(), out InteractionHandler hanlder))
+            if(interactions.TryGetValue(unit.GetType(), out InteractionHandler handler))
             {
-                hanlder();
+                handler();
             }
         }
     }
 
-    // --------------------------------------------------------------------
 
     void GoTo()
     {
         var ray = cam.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
-            //actionsManager.SelectedUnit.Move(hit.point);
             actionsManager.SelectedUnit.Action(hit);
         }
     }

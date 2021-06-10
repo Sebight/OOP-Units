@@ -7,7 +7,7 @@ public class ActionsManager : MonoBehaviour
     [SerializeField] Camera cam;
     [SerializeField] GameManager gameManager;
 
-    public Unit SelectedUnit { get; private set; }
+    public Unit SelectedUnit;
 
     void Update()
     {

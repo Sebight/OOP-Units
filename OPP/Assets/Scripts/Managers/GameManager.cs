@@ -11,11 +11,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] Unit[] allUnits;
     [SerializeField] Transform[] waypoints;
 
-    public List<Unit> AllUnits { get; set; } = new List<Unit>();
+    public List<Unit> AllUnits = new List<Unit>();
+
 
     void Start()
     {
         var spots = waypoints.OrderBy(x => Guid.NewGuid());
+        
         foreach (var s in spots)
         {
             SpawnUnit(s.position);
@@ -28,6 +30,7 @@ public class GameManager : MonoBehaviour
         var instance = Instantiate(unit);
         instance.transform.position = position;
 
+
         instance.gameManager = this;
 
         AllUnits.Add(instance);
@@ -36,9 +39,7 @@ public class GameManager : MonoBehaviour
     public Unit GetNearestUnit(GameObject from)
     {
         List<Unit> unitsList = AllUnits;
-        //Unit[] sortedUnits = new Unit[unitsList.Count];
         int returnIndex = 1;
-        //SortedDictionary<Unit, float> distances = new SortedDictionary<Unit, float>();
         Unit[] sortedUnits = unitsList.ToArray();
         sortedUnits = sortedUnits.OrderBy((x) => (x.gameObject.transform.position - from.transform.position).sqrMagnitude).ToArray();
         for (int i = 1; i < sortedUnits.Length; i++)

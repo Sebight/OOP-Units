@@ -20,8 +20,6 @@ public class TypeA : Unit
             base.Action(hit);
             coroutineStarted = true;
 
-            //Delegates way
-            //arrivedDelegate = () => DropBomb();
             RegisterOnArrive(() => DropBomb());
         }
     }
@@ -37,22 +35,14 @@ public class TypeA : Unit
         bomb.transform.position = gameObject.transform.position;
         bomb.GetComponent<BombHandler>().enabled = true;
         sentDelegate = false;
-        //arrivedDelegate = () => AllowNextMove();
+
         RegisterOnArrive(() => AllowNextMove());
     }
 
     void AllowNextMove()
     {
-        Debug.Log("ALLOW");
         coroutineStarted = false;
         arrivedDelegate = null;
     }
 
-    /*public IEnumerator DropBombOld()
-    {
-        //coroutineStarted = true;
-        
-        //arrivedDelegate = () => ;
-        //coroutineStarted = false;
-    }*/
 }

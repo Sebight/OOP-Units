@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 public class Unit : MonoBehaviour
 {
-    /*[SerializeField]*/ public NavMeshAgent agent;
+    public NavMeshAgent agent;
     public Outline outline;
 
     public bool sentDelegate = false;
@@ -53,7 +53,7 @@ public class Unit : MonoBehaviour
     public void Update()
     {
         bool distanceSmaller = (Vector3.Distance(agent.destination, agent.transform.position) <= agent.stoppingDistance);
-        if (distanceSmaller /*&& !sentDelegate*/)
+        if (distanceSmaller)
         {
             if (arrivedDelegate != null)
             {

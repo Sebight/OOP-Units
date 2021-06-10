@@ -13,12 +13,6 @@ public class TypeC : Unit
     }
 
 
-    public void RegisterOnArrive(ArrivedDelegate callback)
-    {
-        //arrivedDelegate = callback;
-
-    }
-
     public override void Action(RaycastHit hit)
     {
         Unit unitComponent = hit.transform.gameObject.GetComponent<Unit>();
@@ -27,27 +21,9 @@ public class TypeC : Unit
             if (!coroutineStarted)
             {
                 base.Action(hit);
-                //StartCoroutine(Shoot(unitComponent));
 
-                //RegisterOnArrive(() => StartCoroutine(Shoot(unitComponent)));
                 arrivedAction = () => StartCoroutine(Shoot(unitComponent));
                 
-
-                //TODO: create dynamic on arrive system
-                //RegisterOnArrive(Shoot);
-                //Move()
-
-                // delegate /w event
-
-                // Action / Func
-
-                /*
-                  System.Action<Vector3, Vector3> met;
-
-                  met = ShowLine;
-
-                  met(Vector3.zero, Vector3.one);
-                  */
             }
         }
     }
@@ -68,6 +44,6 @@ public class TypeC : Unit
     public override void OnSelect()
     {
         base.OnSelect();
-        Debug.Log("Play sound!");
+        //...
     }
 }
